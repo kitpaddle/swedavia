@@ -1,0 +1,98 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.8.0/dist/leaflet.css" integrity="sha512-hoalWLoI8r4UszCkZ5kL8vayOGVae1oxXe/2A4AO6J9+580uKHDO3JdHb7NzwwzK5xr/Fs0W40kiNHxM9vyTtQ==" crossorigin=""/>
+<link href='https://api.mapbox.com/mapbox.js/plugins/leaflet-fullscreen/v1.0.1/leaflet.fullscreen.css' rel='stylesheet' />
+
+<div class=header>
+  <h1>Arlanda Statistics</h1>
+</div>
+
+<div class="navbar" id="navbar">
+  <div class="dropdown" id="dropdown">
+    <button class="dropbtn" onclick="dropDown()" id="menubutton">Arrivals
+      <i class="fa fa-caret-down"></i>
+    </button>
+    <div class="dropdown-content" id="myDropdown">
+      <button class="ab" id="buttonArr" onclick="setTraffic('arr')">Arrivals</button>
+      <button class="ab" id="buttonDep" onclick="setTraffic('dep')">Departures</button>
+      <button class="ab" id="buttonComb" onclick="setTraffic('combined')">Arr & Dep</button>
+    </div>
+  </div>
+  <input type="date" id="setdate" name="setdate" min="2022-08-23">
+  <input type="submit" value="Update" onclick="fetchNewData()">
+  
+</div>
+
+<div class="content">
+  
+  <!-- Statistics window over traffic per day -->
+  <div id="divmain">
+    <div id="tableheader">Arrivals</div>
+    <div id="table">
+      <div class="tableitem">Landed (on-time):</div>
+      <div class="tableitem"></div>
+      <div class="tableitem">Proportion of delayed flights:</div>
+      <div class="tableitem">0%</div>
+      <div class="tableitem">Landed (delayed):</div>
+      <div class="tableitem">0</div>
+      <div class="tableitem">Mean delay:</div>
+      <div class="tableitem">0 mins</div>
+      <div class="tableitem">Scheduled (on-time):</div>
+      <div class="tableitem">0</div>
+      <div class="tableitem">Median delay:</div>
+      <div class="tableitem">0 mins</div>
+      <div class="tableitem">Scheduled (delayed):</div>
+      <div class="tableitem">0</div>
+      <div class="tableitem">Nr of airlines:</div>
+      <div class="tableitem">0</div>
+      <div class="tableitem">Cancelled:</div>
+      <div class="tableitem">0</div>
+      <div class="tableitem">Nr of origin airports:</div>
+      <div class="tableitem">0</div>
+      <div class="tableitem">Total nr:</div>
+      <div class="tableitem">0</div>
+      <div class="tableitem">Nr of domestic flights:</div>
+      <div class="tableitem">0</div>
+    </div>    
+  </div>
+  <!-- Graph over traffic per day -->
+  <div id="divstat">
+    <div id="graphheading">Flights</div>
+    <div id="graphinfo">
+      <div class="listHeading">Click a section of the chart for more info...</div>
+    </div>
+  </div>
+  <!-- Map of traffic -->
+  <div id="divmapcontainer">
+    <div id="divmap"></div>
+    <div id="mapmenu">
+      <div>
+        <input type="radio" id="b1" onclick="mapClick(1)" checked>
+        <label for="b1">Flight Routes Density</label>
+      </div>
+      <div>
+        <input type="radio" id="b2" onclick="mapClick(2)">
+        <label for="b2">Flight Route Delays</label>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Graph of airlines -->
+  <div id="airlinescontainer">
+    <div id="treemenu">
+      <div>
+        <input type="radio" id="t1" onclick="treeClick(1)" checked>
+        <label for="t1">Percentage of delays by airline</label>
+      </div>
+      <div>
+        <input type="radio" id="t2" onclick="treeClick(2)">
+        <label for="t2">Average delay by airline</label>
+      </div>
+    </div>
+  </div>
+    
+</div>
+
+<script src="https://d3js.org/d3.v4.js"></script>
+<script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js" integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA==" crossorigin=""></script>
+<script src='https://api.mapbox.com/mapbox.js/plugins/leaflet-fullscreen/v1.0.1/Leaflet.fullscreen.min.js'></script>
+<script src='//unpkg.com/leaflet-arc/bin/leaflet-arc.min.js'></script>
