@@ -1,0 +1,383 @@
+body{
+  margin: 0;
+}
+.header {
+  background-color: rgb(230,230,230);
+  padding: 0px;
+  text-align: center;
+  font: 28px sans-serif;
+  color: rgb(100,100,100);
+}
+
+.navbar {
+  overflow: visible;
+  background-color: rgb(200,200,200);
+  width: 100%;
+  margin: 0;
+  padding: 10px 0;
+  display: flex;
+  justify-content: center;
+  z-index: 2000;
+  border-top: 2px solid black;
+  border-bottom: 2px solid black;
+}
+
+/* Style the topnav links */
+.navbar input {
+  display: block;
+  margin: 5px 0;
+  color: black;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+.dropdown {
+  float: left;
+  
+}
+
+.dropdown .dropbtn {
+  cursor: pointer;
+  font-size: 16px;
+  color: black;
+  margin: 5px 0;
+  padding: 14px 16px;
+  min-width: 130px;
+}
+
+.navbar .dropbtn:hover{
+  background-color: darkgrey;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 120px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+}
+
+.dropdown-content .ab {
+  float: none;
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  border: none;
+  outline: none;
+  display: block;
+  text-align: left;
+  min-width: inherit;
+}
+
+.dropdown-content .ab:hover {
+  background-color: #ddd;
+}
+
+.show {
+  display: block;
+  z-index: 2000;
+}
+
+.sticky {
+  position: fixed;
+  top: 0;
+}
+
+.sticky + .content {
+  padding-top: 105px;
+}
+
+.content {
+  background-color: rgb(230,230,230);
+  padding: 30px 0px;
+  display: flex;
+  /*flex-wrap: wrap;*/
+  flex-direction: column;
+}
+
+#divmain{
+  width: 750px;
+  position: relative;
+  border: 2px solid black;
+  border-radius: 5px;
+  margin: 0 auto 10px auto;
+}
+
+#tableheader{
+  color: white;
+  text-align: center;
+  font: 1em sans-serif;
+  padding: 2px 0;
+  transition: 1s;
+}
+
+#table{
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(6, 1fr);
+}
+
+.tableitem{
+  background-color: rgb(200,200,200);
+  place-self: stretch;
+  font: 0.8em sans-serif;
+  padding: 4px 0 4px 20px;
+}
+
+#divstat{
+  background-color: white;
+  width: 750px;
+  position: relative;
+  display: block;
+  margin: 0 auto 10px auto;
+  border: 2px solid black;
+  border-radius: 5px;
+}
+
+.tooltip{
+  position: absolute;
+  font: 12px sans-serif;
+}
+
+#graphheading{
+  display: flex;
+  align-items: center;
+  width: 275px;
+  height: 30px;
+  padding: 0 0 0 15px;
+  background-color: rgb(200,200,200);
+  position: absolute;
+  top: 20px;
+  left: 440px;
+  border-top-left-radius: 2px;
+  border-top-right-radius: 2px;
+  font: 14px sans-serif;
+  transition: 1s;
+}
+#graphinfo{
+  width: 290px;
+  height: 370px;
+  background-color: rgb(230,230,230);
+  position: absolute;
+  top: 50px;
+  left: 440px;
+  padding: 1px 0px;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+
+/* To add grid-lines. but buggy*/
+.axis-grid line {
+  stroke: light-grey;
+  stroke-dasharray: 2;
+  stroke-width: 0.3;
+}
+
+.listHeading{
+  color: darkgrey;
+  padding: 8px 0 0 8px;
+  width: 100%;
+  text-align: left;
+  font: 0.8em sans-serif;
+}
+
+.accordion {
+  margin: 1px 0;
+  background-color: rgb(200,200,200);
+  color: black;
+  padding: 7px 2px 5px 5px;
+  width: 100%;
+  text-align: left;
+  border: none;
+  outline: none;
+  transition: 0.4s;
+}
+
+/* Add a background color to the button if it is clicked on (add the .active class with JS), and when you move the mouse over it (hover) */
+.accordion:hover {
+  background-color: rgb(100,100,100);
+  color: white;
+}
+
+.accordion:after {
+  content: '\02795'; /* Unicode character for "plus" sign (+) */
+  font-size: 13px;
+  color: #777;
+  float: right;
+  margin-left: 5px;
+}
+
+.active:after {
+  content: "\2796"; /* Unicode character for "minus" sign (-) */
+}
+
+.level2 {
+  padding: 0 0 0 0px;
+  display: none;
+  overflow: hidden;
+}
+
+.flightgrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: repeat(7, 1fr);
+}
+
+.flightitem{
+  font: 0.8em sans-serif;
+  padding: 1px 0 1px 5px;
+}
+
+.lightitem{
+  background-color: rgb(215,215,215);
+}
+
+#divmapcontainer{
+  background-color: white;
+  width: 750px;
+  height: 500px;
+  position: relative;
+  display: block;
+  margin: 0 auto 10px auto;
+  border: 2px solid black;
+  border-radius: 5px;
+}
+#divmap{
+  display: block;
+  width: 100%;
+  height: 92%;
+}
+#mapmenu{
+  border-top: 2px solid black;
+  display: flex;
+  justify-content: space-evenly;
+  padding: 8px 0 0 0;
+  font: 1em sans-serif;
+}
+
+.tablecontainer{
+  display: flex;
+  column-gap: 10px;
+}
+.popupcontainer{
+  display: flex;
+  flex-direction: column;
+  row-gap: 10px;
+  align-items: center;
+}
+.tablecolumn{
+  display: flex;
+  flex-direction: column;
+}
+.tablerow{
+  display: grid;
+  grid-template-columns: 0.1fr 1fr 0.7fr 0.7fr;
+  column-gap: 5px;
+  min-width: 190px;
+}
+.rowsmall{
+  font: 0.85em sans-serif;
+  padding: 5px 0;
+  font-style: italic;
+  min-width: 190px;
+}
+
+.legend{
+  padding: 5px 0 0 0;
+  background-color: white;
+  width: 130px;
+  border: 1px solid grey;
+  display: flex;
+  flex-direction: column;
+  row-gap: 4px;
+}
+.lrow{
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+.irow{
+  display:flex;
+  align-items: center;
+  column-gap: 4px;
+}
+.crow{
+  display: flex;
+  flex-direction: column;
+  padding: 0 0 0 28px;
+  row-gap: 3px;
+}
+.dot{
+  height: 25px;
+  width: 25px;
+  background-color: #bbb;
+  border: 1px solid black;
+  border-radius: 50%;
+  display: inline-block;
+  opacity: 0.7;
+}
+.size1{width: 6px; height: 6px;}
+.size2{width: 14px; height: 14px;}
+.size3{width: 24px; height: 24px;}
+.dotgreen{background-color: rgb(44, 186, 0);}
+.dotlightgreen{background-color: rgb(163, 255, 0);}
+.dotyellow{background-color: rgb(255, 244, 0);}
+.dotorange{background-color: rgb(255, 167, 0);}
+.dotred{background-color: rgb(255, 0, 0);}
+
+#airlinescontainer{
+  font: 10px sans-serif;
+  background-color: white;
+  width: 750px;
+  position: relative;
+  display: block;
+  margin: 0 auto 10px auto;
+  border: 2px solid black;
+  border-radius: 5px;
+}
+
+.treetip{
+  display: block;
+  position: absolute;
+  pointer-events: none;	
+  background: white;
+  padding: 20px 20px 20px 20px;
+  border: 2px solid black;
+  border-radius: 5px;
+  min-width: 200px;
+}
+
+.tipcontainer{
+  display: flex;
+  flex-direction: column;
+  row-gap: 10px;
+}
+.tiptable{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  justify-items: start;
+  font-size: 12px;
+}
+.tipheading{
+  align-self: center;
+  font-size: 14px;
+}
+.tipsubheading{
+  display: flex;
+  align-self: center;
+  font-size: 10px;
+  column-gap: 10px;
+}
+#treemenu{
+  display: flex;
+  flex-direction: column;
+  row-gap: 5px;
+  align-items: left;
+  position: absolute;
+  bottom: 15px;
+  left: 90px;
+  font-size: 16px;
+}
