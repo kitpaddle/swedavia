@@ -92,6 +92,7 @@ async function fetchNewData(){
   
   let glitch = "https://paint-pepper-tellurium.glitch.me/";
   let repl = "https://arlandaServer.kitpaddle.repl.co";
+  let server = "https://zenozyne.com";
   
   fetch('https://kitpaddle.github.io/hosting/airportlist.json').then(response => {
     return response.json();
@@ -106,7 +107,7 @@ async function fetchNewData(){
   searchDate = s.toISOString().split('T')[0];
   console.log(searchDate);
   
-  fetch(glitch+'/swedavia/ARN/'+searchDate).then(response => {
+  fetch(server+'/swedavia/ARN/'+searchDate).then(response => {
     console.log(response);
     return response.json();
   })
